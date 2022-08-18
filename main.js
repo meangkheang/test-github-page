@@ -1,13 +1,10 @@
-const submitBtn = document.getElementById('submitBtn');
-const input = document.getElementById('inputText');
-const img = document.getElementById('img');
+ 
+async function fetchPlayers(){
+    const endPoint = 'https://exampleplayers.herokuapp.com/players';
+    const res = await fetch(endPoint);
+    const data= await JSON.stringify(res.json());
 
-submitBtn.addEventListener('click',(e)=>{
-    e.preventDefault();
+    console.log(data);
+} 
 
-    var inputValue = input.value;
-    img.src = inputValue;
-
-    //remove text in input
-    input.value = "";
-});
+fetchPlayers();
